@@ -1,0 +1,244 @@
+body {
+  font-family: "Noto Serif", serif;
+  color: #585858;
+  background-color: #F9F8F8;
+}
+.hero-header{
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+  width: min(1370px, 95%);
+  margin: 1.25rem auto;
+  border-radius: 28px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.387);
+}
+
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  margin: 0; 
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.379);  
+}
+
+
+.hero-content{
+  position: relative;
+  z-index: 1;
+  width: min(550px, 49vw);
+  padding-left: clamp(28px, 5vw, 72px);
+  padding-right: 16px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f3f0ea;    
+}
+
+.hero-title{
+  font-family: Georgia, "Noto Serif", serif; 
+  font-weight: 570;
+  font-size: 3.5em;
+  margin: 0 0 10px 0;
+}
+
+.hero-sub{
+  font-family: Georgia, "Noto Serif", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin: 0 0 26px 0;
+  max-width: 420px;
+}
+
+.btn-group{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.why-choose-us {
+  color: #7e7e83;
+}
+
+.why-choose-us .trust-title {
+  color: #303030cc;
+}
+
+#goals {
+  padding: 40px;
+}
+
+.goals-img {
+  border-radius: 28px;
+  height: 800px;
+  box-shadow: 8px 7px rgba(0, 0, 0, 0.301);
+  width: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+.goals-wrap{
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  display: flex;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: flex-start;
+}
+
+.goals-content{
+  flex: 1;
+  padding-top: 8px;
+  gap: 60px;
+  margin-bottom: 32px;
+}
+
+.goals-header{
+  font-family: Georgia, "Noto Serif", serif;
+  letter-spacing: 0.5px;
+  font-weight: 550;
+  color: #303030cc;
+  margin: 0 0 22px;
+  margin-bottom: 42px;
+}
+
+.goals-list{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.goals-item{
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.goals-icon{
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;    
+  display: grid;
+  place-items: center;
+  flex: 0 0 92px;
+  margin-top: 2px;
+}
+
+.goals-icon img{
+  width: 70px;
+  height: 70px;
+  padding-top: 5px;
+  display: block;
+  object-fit: contain;
+  filter: none;
+}
+
+.goals-text{
+  margin: 0;
+  color: #6f6f6f;
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+.goals-btn{
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 10px;
+  background: #2f2f2f;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+.goals-btn:hover{
+  opacity: 0.92;
+}
+
+.mission-card{
+  border-radius: 14px;              
+  color: #F5F5F5;
+  padding: 42px 34px;           
+  min-height: 260px;            
+  display: flex;
+  align-items: center;         
+  justify-content: center;
+  text-align: center;             
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.mission-1{ 
+  background: #606F61; 
+}
+.mission-2{ 
+  background: #6D806E; 
+}
+.mission-3{ 
+  background: #7D947F; 
+}
+
+/*featured products*/
+.product-card{
+  background: transparent;
+}
+
+.product-img{
+  width: 600px;
+  height: 800px;    
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+  box-shadow: 8px 7px rgba(0, 0, 0, 0.301);
+}
+
+.product-body{
+  padding-top: 16px;
+}
+
+.product-title{
+  font-weight: 500;
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: #3a3a3a;
+}
+
+.product-desc{
+  color: #8a8a8a;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.shop-button{
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #2f2f2f;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+}
+.shop-button:hover{
+  opacity: .92; 
+}
+.product-img-2 {
+  width: 200%;
+  height: 500px;    
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+  box-shadow: 8px 7px rgba(0, 0, 0, 0.301);
+}
+
+/*footer*/
+.footer {
+  background-color: #606F61;
+  color: #fff;
+  padding: 20px 0;
+}

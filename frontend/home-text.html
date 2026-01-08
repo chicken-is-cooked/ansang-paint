@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--font - noto serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>AnSang Paint</title>
+    <!--boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!--css-->
+    <link rel="stylesheet" href="./src/style/home.css">
+</head>
+<body>
+    <!--nav-->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+            <!--i def change the logo later sorry:))-->
+            <a class="navbar-brand" href="#"><img src="./public/img/nav-logo.png" alt="logo" width="130" height="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#">Sơn Nội Thất</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sơn Ngoại Thất</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sơn Công Nghiệp</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Khác</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tin Tức</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
+                    <li class="nav-item"><button type="button" id="register-button" class="btn btn-dark">Đăng nhập</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--main header-->
+    <header class="hero-header">
+        <img class="hero-bg" src="../frontend/public/img/header-home.png" alt="Header image" />
+        <div class="hero-content">
+            <h1 class="hero-title">ANSANG PAINT</h1>
+            <p class="hero-sub">Each story represented by their color. Choose your own story.</p>
+
+            <div class="btn-group">
+                <!--the 1st button should be the drop down one but ill do it later-->
+                <button type="button" class="btn btn-dark"><a href="#simple-list-item-1" style="text-decoration: none; color:aliceblue;">Mua Sắm Ngay</a></button>
+                <button type="button" class="btn btn-light">Liên Hệ Tư Vắn</button>
+            </div>
+        </div>
+    </header>
+
+    <!--why choose us-->
+    <section class="why-choose-us py-5">
+        <div class="container">
+            <!--header-->
+            <div class="text-center mx-auto trust-head">
+                <h2 class="trust-title mb-3">TẠI SAO KHÁCH HÀNG TIN DÙNG ĐẠI LÍ SƠN ANSANG</h2>
+                <p class="trust-desc mb-0">
+                    Chúng tôi là đại lý phân phối sơn chính hãng, cung cấp giải pháp sơn toàn diện cho nhà ở, căn hộ và công trình.
+                    Với danh mục sản phẩm đa dạng, bảng màu phong phú và đội ngũ tư vấn giàu kinh nghiệm, chúng tôi cam kết
+                    mang đến lựa chọn phù hợp nhất cho từng không gian sống.
+                </p>
+            </div>
+            <!--card grids-->
+                <div class="row text-center g-4 mt-4">
+                    <!-- Stat 1 -->
+                    <div class="col-12 col-md-6">
+                        <div class="trust-stat">
+                            <div class="trust-number"><h3>100+</h3></div>
+                                <div class="trust-label">Sản phẩm sơn chính hãng</div>
+                            <div class="trust-sub">Từ nội thất, ngoại thất đến chống thấm, chống nóng</div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="col-12 col-md-6">
+                        <div class="trust-stat">
+                            <div class="trust-number"><h3>100+</h3></div>
+                                <div class="trust-label">Khách hàng & công trình đã phục vụ</div>
+                            <div class="trust-sub">Nhà ở, căn hộ, cửa hàng và dự án dân dụng</div>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3 (center under) -->
+                    <div class="col-12">
+                        <div class="trust-stat trust-stat--center mt-md-3">
+                            <div class="trust-number"><h3>98%</h3></div>
+                                <div class="trust-label">Khách hàng hài lòng</div>
+                            <div class="trust-sub">Quay lại hoặc giới thiệu cho người quen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--goals of ansang paint-->
+    <section id="goals" class="goals">
+        <div class="goals-wrap">
+            <!-- Image left -->
+            <div class="goals-img-div">
+            <img src="public/img/green-exterior.jpg" class="goals-img" alt="Ansang Paint goals">
+            </div>
+
+            <!-- Content right -->
+            <div class="goals-content">
+                <h2 class="goals-header">MỤC TIÊU ANSANG PAINT</h2>
+                <div class="goals-list">
+                    <div class="goals-item">
+                        <div class="goals-icon">
+                            <img src="./public/img/list-item.png" alt="">
+                        </div>
+                        <p class="goals-text">
+                            Không ngừng cải tiến công nghệ, nâng cao năng suất và chất lượng sản phẩm ở mức cao nhất, phù hợp với tính nhiệt đới hóa ở Châu Á
+                        </p>
+                    </div>
+
+                    <div class="goals-item">
+                        <div class="goals-icon">
+                            <img src="./public/img/list-item.png" alt="">
+                        </div>
+                        <p class="goals-text">
+                            Trở thành một đơn vị hàng đầu về những sản phẩm sơn đa chất thấm thông minh, luôn tìm tòi những giải pháp mới mang tính đột phá để sản xuất ra những sản phẩm đa năng.
+                        </p>
+                    </div>
+
+                    <div class="goals-item">
+                        <div class="goals-icon">
+                            <img src="./public/img/list-item.png" alt="">
+                        </div>
+                        <p class="goals-text">
+                            Luôn hướng tới khách hàng: Đặt lợi ích của khách hàng và những đối tác lên hàng đầu thông qua các chính sách mềm dẻo, linh hoạt, hài hòa.
+                        </p>
+                    </div>
+
+                    <div class="goals-item">
+                        <div class="goals-icon">
+                            <img src="./public/img/list-item.png" alt="">
+                        </div>
+                        <p class="goals-text">
+                            Hợp tác, chia sẻ, tin cậy: Xây dựng môi trường làm việc chuyên nghiệp biết lắng nghe và thấu hiểu khách hàng.
+                        </p>
+                    </div>
+                </div>
+
+                <a class="goals-btn" href="#services">Xem giải pháp và dịch vụ</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!--missions-->
+    <section class="jotun-mission-goals py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-2">SỨ MỆNH ANSANG PAINT</h2>
+                <p class="section-sub mb-0">Cam kết bền vững và định hướng phát triển của Jotun.</p>
+            </div>
+
+            <div class="row row-cols-1 row-cols-lg-3 g-4 g-lg-5 justify-content-center">
+                <div class="col">
+                    <div class="mission-card mission-1 h-100">
+                        <p class="mb-0">
+                            Luôn tìm ra những giải pháp hiệu quả nhất về chất phủ bề mặt cho các công trình dân dụng và công cộng phù hợp với mọi yêu cầu cầu của khách hàng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mission-card mission-2 h-100">
+                        <p class="mb-0">
+                            Gia tăng giá trị bền vững và thẩm mỹ cho các công trình, làm đẹp cho cuộc đời thông qua mỗi cm2 bề mặt công trình hoàn thiện.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mission-card mission-3 h-100">
+                        <p class="mb-0">
+                            Nâng cao hiệu quạ sử dụng đồng tiền cho mỗi người dân dùng sản phẩm sơn và chất chống thấm.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--go-to-shop-->
+    <section data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0" >
+        <div id="simple-list-item-1">
+            <div class="container">
+                <!-- header -->
+                <div class="text-center mb-5">
+                    <h2 class="section-title mb-2">KHÁM PHÁ SẢN PHẨM CỦA CHÚNG TÔI</h2>
+                    <p class="section-sub mb-0">Chúng tôi có những sản phẩm với đa dạng loại sơn màu sắc nên chọn cmn đi.</p>
+                </div>
+
+                <div class="row g-4 g-lg-5">
+                    <!--interior-->
+                    <div class="col-12 col-lg-6">
+                        <div class="product-card h-100">
+                            <img src="./public/img/interior-home.png" alt="Sơn nội thất" class="product-img">
+                            <div class="product-body">
+                                <h3 class="product-title">Sơn Nội Thất</h3>
+                                <p class="product-desc mb-3">
+                                Sản phẩm sơn chính hãng<br>
+                                Từ nội thất, ngoại thất đến chống thấm, chống nóng
+                                </p>
+                                <a class="shop-button" href="#services">Xem sản phẩm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--exterior-->
+                    <div class="col-12 col-lg-6">
+                        <div class="product-card h-100">
+                            <img src="./public/img/exterior-home.png" alt="Sơn ngoại thất" class="product-img">
+                            <div class="product-body">
+                                <h3 class="product-title">Sơn Ngoại Thất</h3>
+                                <p class="product-desc mb-3">
+                                Sản phẩm sơn chính hãng<br>
+                                Từ nội thất, ngoại thất đến chống thấm, chống nóng
+                                </p>
+                                <a class="shop-button" href="#services">Xem sản phẩm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--industrial paint-->
+                <div class="row g-4 g-lg-5 mt-1 mb-5">
+                    <div class="col-12 col-lg-6">
+                        <div class="product-card h-100">
+                            <img src="./public/img/industrial-home.png" alt="Sơn công nghiệp" class="product-img-2">
+                            <div class="product-body">
+                                <h3 class="product-title">Sơn Công Nghiệp</h3>
+                                <p class="product-desc mb-3">
+                                Sản phẩm sơn chính hãng<br>
+                                Từ nội thất, ngoại thất đến chống thấm, chống nóng
+                                </p>
+                                <a class="shop-button" href="#services">Xem sản phẩm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 AnSang Paint. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
