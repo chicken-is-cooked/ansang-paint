@@ -1,0 +1,14 @@
+body {
+  font-family: "Noto Serif", serif;
+  color: #585858;
+  background-color: #F9F8F8;
+}
+
+
+
+/*footer*/
+.footer {
+  background-color: #2f2f2f;
+  color: #fff;
+  padding: 20px 0;
+}
