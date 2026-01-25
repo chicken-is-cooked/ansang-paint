@@ -1,0 +1,3 @@
+this is my small project (in progress)
+im working on the frontend first...
+
