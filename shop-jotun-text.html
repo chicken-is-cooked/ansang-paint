@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Painting with Love</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+        }
+        .brand-logo { 
+            width: 130px; 
+            height: 60px; 
+            object-fit: contain; 
+        }
+        /* product details*/
+        .product-card { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .product-media { 
+            height: 150px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 12px; 
+        }
+        .product-media img { 
+            max-height: 130px; 
+            object-fit: contain; 
+        }
+        .product-body { 
+            padding: 8px; 
+            flex: 1 1 auto; 
+        }
+        .product-footer { 
+            padding: 8px 10px 12px; 
+            background: #fff; 
+            border: 0; 
+        }
+        .brand-img { 
+            max-height: 60px; 
+        }
+        .breadcrumb { 
+            background: #f8f9fa; 
+        }
+
+        /*image align*/
+        .carousel-narrow{
+            width: 100%;
+            max-width: 1800px;
+            margin-inline: auto;
+        }
+        .carousel-narrow .carousel-inner {
+            overflow: hidden;
+        }
+        .carousel-img {
+            height: 300px;
+            object-fit: cover;
+        }
+        .jotun-intro-card{
+            width: 100%;
+            /* allow the card to take full column width so it sits flush left */
+            max-width: none;
+            margin-bottom: 1.25rem;
+            position: static;
+            max-height: none;
+            overflow: hidden;
+            border-radius: .75rem;
+        }
+
+        /* Logo header inside the card */
+        .jotun-intro-card .logo-wrap{
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #07213a;
+            border-top-left-radius: .75rem;
+            border-top-right-radius: .75rem;
+            padding: 1rem;
+        }
+        .jotun-intro-card .logo-wrap img{
+            max-height: 180px;
+            width: auto;
+            display: block;
+        }
+
+        /* Example hero image inside card */
+        .jotun-intro-card .example-img{
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .jotun-intro-card .card-body{
+            padding: 1rem 1rem 0.75rem;
+        }
+        .jotun-intro-card .list-group-item{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        /* Small-screen tweaks: keep card neat and centered on mobile */
+        @media (max-width: 991.98px) {
+            .jotun-intro-card{
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .jotun-intro-card .logo-wrap{ 
+                height: 110px; 
+                padding: .75rem; 
+            }
+            .jotun-intro-card .logo-wrap img{ max-height: 64px; }
+            .jotun-intro-card .example-img{ height: 200px; }
+            .jotun-intro-card .card-title{ font-size: 1.05rem; }
+            .jotun-intro-card .card-text{ font-size: .95rem; }
+            .jotun-intro-card .list-group-item{ padding-left: .75rem; padding-right: .75rem; }
+        }
+        @media (min-width: 992px) {
+            .product-media { height: 160px; }
+            .carousel-narrow { max-width: 100%; }
+            .carousel-img { height: 400px; }
+            /* sticky left sidebar on large screens */
+            .jotun-intro-card{ position: sticky; top: 90px; align-self: start; }
+        }
+    </style>
+</head>
+<body>
+    <!-- MAIN NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="mainNavbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./public/img/logo.png" alt="logo" class="brand-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavCollapse">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BRAND / CATEGORY NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom" id="brandsNavbar">
+        <div class="container-fluid">
+            <div class="btn-group">
+                <button class="btn btn-light btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Danh mục sản phẩm</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Bột Bả & Chống Thấm</a></li>
+                    <li><a class="dropdown-item" href="#">Sơn Lót Nội Ngoại Thất</a></li>
+                    <li><a class="dropdown-item" href="#">Sơn Ngoại Thất</a></li>
+                    <li><a class="dropdown-item" href="#">Sơn Nội Thất</a></li>
+                    <li><a class="dropdown-item" href="#">Sơn Sắt Thép</a></li>
+                </ul>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#brandNavCollapse" aria-controls="brandNavCollapse" aria-expanded="false" aria-label="Toggle brands">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="brandNavCollapse">
+                <ul class="navbar-nav ms-auto gap-2 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Dulux</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Kova</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Nano</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sơn Đại Bàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Jotun</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bảng Giá</a></li>
+                </ul>
+                <button type="button" class="btn btn-outline-primary ms-3">Tra cứu đơn hàng</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMBS -->
+    <nav aria-label="breadcrumb" class="py-2 w-100 bg-light border-bottom">
+        <div class="container">
+            <ol class="breadcrumb rounded-3 mb-0 align-items-center">
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Categories</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!--HEADER - center-->
+    <header>
+        <div class="container py-4 text-center">
+            <h1 class="display-5 fw-bold">Jotun Paints</h1>
+            <p class="lead mb-0">Explore our wide range of Jotun paints for every surface and environment. Durable, vibrant, and eco-friendly solutions.</p>
+        </div>
+    </header>
+
+    <!--BRAND INTRO - left-->
+        <main class="container py-5">
+          <div class="row">
+            <!-- Left: Brand intro sidebar -->
+            <aside class="col-lg-3 mb-4">
+                <div class="card shadow rounded-3 border-0 jotun-intro-card">
+                    <!-- Logo header -->
+                    <div class="logo-wrap">
+                        <img src="./public/img/jotun-logo-intro.png" alt="jotun logo">
+                    </div>
+                    <!-- Intro -->
+                    <div class="card-body">
+                        <h4 class="card-title mb-2">Giới thiệu Jotun</h4>
+                        <p class="card-text text-muted">
+                            Jotun được thành lập năm 1926 tại Sandefjord, Na Uy bởi Odd Gleditsch Sen.
+                            Khởi đầu của hãng gắn với sơn hàng hải và nhu cầu bảo vệ tàu thuyền trong một thành phố cảng,
+                            từ đó tạo nền tảng cho triết lý phát triển bền vững về sau.
+                        </p>
+                    </div>
+                    <!-- Big image -->
+                    <img src="./public/img/jotun-example.webp" class="example-img" alt="jotun example">
+                    <!-- Key points -->
+                    <ul class="list-group list-group-flush px-2">
+                    <li class="list-group-item border-0 px-4 py-3">
+                        <h6 class="mb-1">Hành trình phát triển toàn cầu</h6>
+                        <p class="mb-0 text-muted small">
+                        Từ một công ty có gốc rễ ở Bắc Âu, Jotun dần mở rộng ra nhiều thị trường và hiện hoạt động trên hơn 100 quốc gia.
+                        Quy mô toàn cầu cùng hệ thống sản xuất – phân phối rộng giúp Jotun đáp ứng đa dạng nhu cầu từ nhà ở đến công trình lớn.
+                        </p>
+                    </li>
+                    <li class="list-group-item border-0 px-4 py-3">
+                        <h6 class="mb-1">Lĩnh vực kinh doanh cốt lõi</h6>
+                        <p class="mb-0 text-muted small">
+                        Jotun tập trung vào ba lĩnh vực chính: Sơn hàng hải, Sơn công nghiệp và Sơn trang trí.
+                        Mỗi lĩnh vực đều có các dòng sản phẩm chuyên biệt, đáp ứng yêu cầu kỹ thuật và thẩm mỹ khác nhau.
+                        </p>
+                    </li>
+                    <li class="list-group-item border-0 px-4 py-3">
+                        <h6 class="mb-1">Thông điệp thương hiệu</h6>
+                        <p class="mb-0 text-muted small">
+                        “Sơn với tình yêu” thể hiện cam kết của Jotun trong việc cung cấp sản phẩm chất lượng cao,
+                        hướng đến trải nghiệm bền vững và giá trị lâu dài cho không gian sống.
+                        </p>
+                    </li>
+                    </ul>
+                    <!-- Link -->
+                    <div class="card-body px-4 pt-2">
+                    <a href="#" class="link-primary text-decoration-none fw-semibold">
+                        Xem thêm về Jotun →
+                    </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Collections, Color Palette, and Products -->
+            <!--1st collection-->
+            <section class="col-lg-9">
+                <div class="mb-5">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h2 class="h2 mb-0">Bộ sư tập màu Jotun</h2>
+                        <small class="text-muted"><a href="https://www.jotun.com/vn-vi/decorative/interior/colours/colourcards/our-most-beautiful-colours">Xem tất cả màu sắc</a></small>
+                    </div>
+                    <div>
+                        <p>Bộ sưu tập “Sắc Màu Đẹp Nhất Từ Jotun 2025” gồm 128 màu được tuyển chọn, giúp bạn dễ dàng phối màu theo phong cách riêng và hình dung sự kết hợp hài hòa cho ngôi nhà mơ ước. 
+                            Bảng màu gợi ý dựa trên các lý thuyết màu sắc để tạo cảm hứng lâu dài. Bạn cũng có thể đến đại lý Jotun gần nhất để xem mẫu màu lớn, 
+                            được tư vấn bởi chuyên gia và thi công bằng sơn thật để đảm bảo màu sắc trung thực.</p>
+                    </div>
+                </div>
+                <!-- COLLECTIONS -->
+                <div class="mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h2 class="h5 mb-0">Chốn nuôi dưỡng tâm hồn</h2>
+                        <small class="text-muted"><a href="https://www.jotun.com/vn-vi/decorative/interior/colours/colourcards/new-jotun-colour-chart">Explore categories</a></small>
+                    </div>
+                    <div class="content">
+                        <p>Phủ lên không gian sống những gam màu phản chiếu cá tính và đam mê của chính bạn để nhà 
+                            không còn là nơi để ở mà con là nơi mang lại sự bình yên và nguồn năng lượng tích cực cho tâm hồn bạn.</p>
+                    </div>
+                </div>
+
+                <!-- JOTUN COLOR PALETTE -->
+                <div class="mb-3">
+                    <h6 class="h6 mb-3">Các màu nổi bật</h6>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+
+                        <!-- Pink Ambience -->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#CFAF9C;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">20362</small>
+                                    <h5 class="mb-0">Pink Ambience</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sophisticated Red -->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#7B5953;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">2951</small>
+                                    <h5 class="mb-0">Sophisticated Red</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Northern Mystic -->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#696D61;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">7613</small>
+                                    <h5 class="mb-0">Northern Mystic</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Iconic-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#A1ABA6;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">6378</small>
+                                    <h5 class="mb-0">Iconic</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Olive-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#B8A87F;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">8284</small>
+                                    <h5 class="mb-0">Olive</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLLECTIONS -->
+                <div class="mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h2 class="h5 mb-0">Sắc Màu của Cảm Xúc</h2>
+                        <small class="text-muted"><a href="https://www.jotun.com/vn-vi/decorative/interior/colours/colourcards/jotun-colour-collection-2025">Explore categories</a></small>
+                    </div>
+                    <div class="content">
+                        <p>Vẻ đẹp đích thực không đến từ những điều lớn lao, mà khéo léo tỏa sáng trong từng khoảnh khắc. Màu sắc cũng không ngoại lệ. 
+                            Sắc Màu Cảm Xúc 2025 của Jotun không chỉ tôn vinh sức mạnh của sự tinh tế mà còn phá cách với những điểm nhấn táo bạo.</p>
+                    </div>
+                </div>
+
+                <!-- JOTUN COLOR PALETTE -->
+                <div class="mb-3">
+                    <h6 class="h6 mb-3">Các màu nổi bật</h6>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+
+                        <!--Cashew-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#E3DDCD;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">1931</small>
+                                    <h5 class="mb-0">Cashew</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Malmo-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#E4DCBC;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">8124</small>
+                                    <h5 class="mb-0">Malmo</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Adventure-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#A38269;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">11175</small>
+                                    <h5 class="mb-0">Adventure</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Muted Coral-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#BB7D69;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">20217</small>
+                                    <h5 class="mb-0">Muted Coral</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Free Spirit-->
+                        <div class="col">
+                            <div class="card border-0">
+                                <div class="rounded-3" style="height: 240px; background:#6B7E7E;"></div>
+                                <div class="card-body px-0 pt-3">
+                                    <small class="text-muted">5489</small>
+                                    <h5 class="mb-0">Free Spirit</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            </div>
+        </main>
+
+        <!--all the products:))-->
+        <main class="container py-3">
+        <div class="row g-6">
+            <!-- Products Section (Left) -->
+            <section class="col">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h2 class="h5 mb-0">Featured Products</h2>
+                </div>
+                <!--radio for categories and search-->
+                <div class="mb-4">
+                    <form class="d-flex mb-4" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Sơn Công Nghiệp</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Sơn Nội Thất</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Sơn Ngoại Thất</label>
+                    </div>
+                </div>
+                <!--products-->
+                <div>
+                    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 product-grid">
+                        <div class="col d-flex">
+                            <article class="card text-center shadow-sm product-card w-100">
+                                <div class="product-media"><img src="./public/img/product-1.png" class="img-fluid" alt="Product 1"></div>
+                                <div class="product-body"><h6 class="card-title mb-1">Category Product 1</h6><p class="card-text text-muted small mb-0">Premium quality</p></div>
+                                <div class="product-footer"><img src="./public/img/jotun-logo.png" class="brand-img d-block mx-auto mb-2" alt="brand"><a href="#" class="btn btn-outline-dark btn-sm w-100">View details</a></div>
+                            </article>
+                        </div>
+
+                        <div class="col d-flex">
+                            <article class="card text-center shadow-sm product-card w-100">
+                                <div class="product-media"><img src="./public/img/product-1.png" class="img-fluid" alt="Product 2"></div>
+                                <div class="product-body"><h6 class="card-title mb-1">Category Product 2</h6><p class="card-text text-muted small mb-0">Best seller</p></div>
+                                <div class="product-footer"><img src="./public/img/jotun-logo.png" class="brand-img d-block mx-auto mb-2" alt="brand"><a href="#" class="btn btn-outline-dark btn-sm w-100">View details</a></div>
+                            </article>
+                        </div>
+
+                        <div class="col d-flex">
+                            <article class="card text-center shadow-sm product-card w-100">
+                                <div class="product-media"><img src="./public/img/product-1.png" class="img-fluid" alt="Product 3"></div>
+                                <div class="product-body"><h6 class="card-title mb-1">Category Product 3</h6><p class="card-text text-muted small mb-0">New arrival</p></div>
+                                <div class="product-footer"><img src="./public/img/jotun-logo.png" class="brand-img d-block mx-auto mb-2" alt="brand"><a href="#" class="btn btn-outline-dark btn-sm w-100">View details</a></div>
+                            </article>
+                        </div>
+
+                        <div class="col d-flex">
+                            <article class="card text-center shadow-sm product-card w-100">
+                                <div class="product-media"><img src="./public/img/product-1.png" class="img-fluid" alt="Product 4"></div>
+                                <div class="product-body"><h6 class="card-title mb-1">Category Product 4</h6><p class="card-text text-muted small mb-0">High demand</p></div>
+                                <div class="product-footer"><img src="./public/img/jotun-logo.png" class="brand-img d-block mx-auto mb-2" alt="brand"><a href="#" class="btn btn-outline-dark btn-sm w-100">View details</a></div>
+                            </article>
+                        </div>
+
+                        <div class="col d-flex">
+                            <article class="card text-center shadow-sm product-card w-100">
+                                <div class="product-media"><img src="./public/img/product-1.png" class="img-fluid" alt="Product 5"></div>
+                                <div class="product-body"><h6 class="card-title mb-1">Category Product 5</h6><p class="card-text text-muted small mb-0">Exclusive offer</p></div>
+                                <div class="product-footer"><img src="./public/img/jotun-logo.png" class="brand-img d-block mx-auto mb-2" alt="brand"><a href="#" class="btn btn-outline-dark btn-sm w-100">View details</a></div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav aria-label="Product pages">
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
